@@ -1,0 +1,51 @@
+<h1>New user</h1>
+
+<% form_for(@user) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :hashed_password %><br />
+    <%= f.text_field :hashed_password %>
+  </p>
+  <p>
+    <%= f.label :salt %><br />
+    <%= f.text_field :salt %>
+  </p>
+  <p>
+    <%= f.label :can_has_notifications %><br />
+    <%= f.check_box :can_has_notifications %>
+  </p>
+  <p>
+    <%= f.label :uid %><br />
+    <%= f.text_field :uid %>
+  </p>
+  <p>
+    <%= f.label :uname %><br />
+    <%= f.text_field :uname %>
+  </p>
+  <p>
+    <%= f.label :rid %><br />
+    <%= f.text_field :rid %>
+  </p>
+  <p>
+    <%= f.label :novel_title %><br />
+    <%= f.text_field :novel_title %>
+  </p>
+  <p>
+    <%= f.label :is_admin %><br />
+    <%= f.check_box :is_admin %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', users_path %>

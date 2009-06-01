@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  email: MyString
+  hashed_password: MyString
+  salt: MyString
+  can_has_notifications: false
+  uid: 1
+  uname: MyString
+  rid: 1
+  novel_title: MyString
+  is_admin: false
+
+two:
+  name: MyString
+  email: MyString
+  hashed_password: MyString
+  salt: MyString
+  can_has_notifications: false
+  uid: 1
+  uname: MyString
+  rid: 1
+  novel_title: MyString
+  is_admin: false
