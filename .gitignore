@@ -7,3 +7,4 @@ log
 .loadpath
 .tmp_*
 *.dat
+nano_cache
