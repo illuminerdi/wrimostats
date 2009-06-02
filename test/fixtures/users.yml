@@ -1,25 +1,28 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
-  email: MyString
+  name: jgclingenpeel
+  email: joshua.clingenpeel@gmail.com
   hashed_password: MyString
   salt: MyString
-  can_has_notifications: false
-  uid: 1
-  uname: MyString
-  rid: 1
-  novel_title: MyString
+  can_has_notifications: true
+  uid: 240659
+  is_admin: true
+
+renda:
+  name: renda
+  email: rendadodge@gmail.com
+  hashed_password: MyString
+  salt: MyString
+  can_has_notifications: true
+  uid: 94450
   is_admin: false
 
-two:
-  name: MyString
-  email: MyString
+reid:
+  name: reid
+  email: hinge1492@hotmail.com
   hashed_password: MyString
   salt: MyString
   can_has_notifications: false
-  uid: 1
-  uname: MyString
-  rid: 1
-  novel_title: MyString
+  uid: 245095
   is_admin: false

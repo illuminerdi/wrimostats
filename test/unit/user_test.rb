@@ -10,7 +10,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "user name is unique" do
     user = User.new(
-      :name => "joshua",
+      :name => users(:one).name,
       :hashed_password => "funny?",
       :salt => "no, stupid"
     )

@@ -26,12 +26,9 @@ ActiveRecord::Schema.define(:version => 20090601234256) do
     t.string   "email"
     t.string   "hashed_password"
     t.string   "salt"
-    t.boolean  "can_has_notifications"
+    t.boolean  "can_has_notifications", :default => true
     t.integer  "uid"
-    t.string   "uname"
-    t.integer  "rid"
-    t.string   "novel_title"
-    t.boolean  "is_admin"
+    t.boolean  "is_admin",              :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
