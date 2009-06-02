@@ -73,9 +73,14 @@ class UserTest < ActiveSupport::TestCase
     assert user.errors.on(:email)
   end
   
+  test "user has validation for email address" do
+    user = users(:one)
+    assert user.respond_to?(:valid_email?)
+  end
+  
   test "user email is probably correct" do
     user = users(:one)
-    user.email = "ff.art@itcom"
+    user.email = "ff.art itcom"
     assert ! user.valid?
     assert user.errors.on(:email)
   end
