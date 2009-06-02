@@ -3,8 +3,8 @@
 one:
   name: jgclingenpeel
   email: joshua.clingenpeel@gmail.com
-  hashed_password: MyString
-  salt: MyString
+  hashed_password: <%= User.encrypted_password('boo', 'radley') %>
+  salt: radley
   can_has_notifications: true
   uid: 240659
   is_admin: true
@@ -12,8 +12,8 @@ one:
 renda:
   name: renda
   email: rendadodge@gmail.com
-  hashed_password: MyString
-  salt: MyString
+  hashed_password: <%= User.encrypted_password('ted', 'dansen') %>
+  salt: dansen
   can_has_notifications: true
   uid: 94450
   is_admin: false
@@ -21,8 +21,8 @@ renda:
 reid:
   name: reid
   email: hinge1492@hotmail.com
-  hashed_password: MyString
-  salt: MyString
+  hashed_password: <%= User.encrypted_password('black', 'adam') %>
+  salt: adam
   can_has_notifications: false
   uid: 245095
   is_admin: false

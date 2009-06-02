@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
+  
+  def setup
+    @request.session[:user_id] = users(:one).id
+  end
+  
   test "should get index" do
     get :index
     assert_response :success
@@ -14,7 +19,13 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should create user" do
     assert_difference('User.count') do
-      post :create, :user => { }
+      post :create, :user => {
+        :name => 'hollowedout',
+        :email => 'control@hollowedout.com',
+        :password => 'fubar',
+        :password_confirmation => 'fubar',
+        :uid => 240659
+      }
     end
 
     assert_redirected_to user_path(assigns(:user))
