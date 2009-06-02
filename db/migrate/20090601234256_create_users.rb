@@ -5,12 +5,9 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :hashed_password
       t.string :salt
-      t.boolean :can_has_notifications
+      t.boolean :can_has_notifications, :default => true
       t.integer :uid
-      t.string :uname
-      t.integer :rid
-      t.string :novel_title
-      t.boolean :is_admin
+      t.boolean :is_admin, :default => false
 
       t.timestamps
     end
