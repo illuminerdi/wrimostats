@@ -15,6 +15,27 @@ class UsersControllerTest < ActionController::TestCase
   test "should get new" do
     get :new
     assert_response :success
+    assert_tag :tag => 'input', :attributes => {
+      :name => 'user[name]'
+    }
+    assert_tag :tag => 'input', :attributes => {
+      :name => 'user[password]'
+    }
+    assert_tag :tag => "input", :attributes => {
+      :name => "user[email]"
+    }
+    assert_tag :tag => 'input', :attributes => {
+      :name => 'user[password_confirmation]'
+    }
+    assert_tag :tag => 'input', :attributes => {
+      :name => 'user[uid]'
+    }
+    assert_tag :tag => 'input', :attributes => {
+      :name => 'user[can_has_notifications]'
+    }
+    assert_tag :tag => 'input', :attributes => {
+      :name => 'user[is_admin]'
+    }
   end
 
   test "should create user" do
@@ -39,10 +60,34 @@ class UsersControllerTest < ActionController::TestCase
   test "should get edit" do
     get :edit, :id => users(:one).to_param
     assert_response :success
+    assert_tag :tag => 'input', :attributes => {
+      :name => 'user[name]'
+    }
+    assert_tag :tag => 'input', :attributes => {
+      :name => 'user[password]'
+    }
+    assert_tag :tag => "input", :attributes => {
+      :name => "user[email]"
+    }
+    assert_tag :tag => 'input', :attributes => {
+      :name => 'user[password_confirmation]'
+    }
+    assert_tag :tag => 'input', :attributes => {
+      :name => 'user[uid]'
+    }
+    assert_tag :tag => 'input', :attributes => {
+      :name => 'user[can_has_notifications]'
+    }
+    assert_tag :tag => 'input', :attributes => {
+      :name => 'user[is_admin]'
+    }
   end
 
   test "should update user" do
-    put :update, :id => users(:one).to_param, :user => { }
+    put :update, :id => users(:one).to_param, :user => {
+      :password => 'solomongrundy', 
+      :password_confirmation => 'solomongrundy' 
+    }
     assert_redirected_to user_path(assigns(:user))
   end
 
@@ -52,5 +97,41 @@ class UsersControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to users_path
+    assert_equal @response.flash[:notice], "User #{users(:one).name} deleted"
+  end
+
+  test "should not destroy the last user" do
+    users = User.find(:all)
+    assert_raise(RuntimeError) do
+      loop do
+        users.first.destroy
+        users.shift
+      end
+    end
+
+   assert_equal 1, users.length
+  end
+  
+  test "should give new users a sign up form" do
+    get :signup
+    assert_response :success
+    assert_tag :tag => "input", :attributes => {
+      :name => "user[name]"
+    }
+    assert_tag :tag => "input", :attributes => {
+      :name => "user[email]"
+    }
+    assert_tag :tag => "input", :attributes => {
+      :name => "user[password]"
+    }
+    assert_tag :tag => "input", :attributes => {
+      :name => "user[password_confirmation]"
+    }
+    assert_tag :tag => "input", :attributes => {
+      :name => "user[uid]"
+    }
+    assert_tag :tag => 'input', :attributes => {
+      :name => 'user[can_has_notifications]'
+    }
   end
 end

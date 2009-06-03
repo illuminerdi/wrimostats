@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   validates_presence_of :name, :email, :uid
   validates_uniqueness_of :name, :email
   validate :valid_email?
+  validate :valid_uid?
   
   attr_accessor :password
   attr_accessor :password_confirmation
@@ -56,5 +57,11 @@ class User < ActiveRecord::Base
     TMail::Address.parse(email)
   rescue
     errors.add(:email, "Must be a valid email")
+  end
+  
+  def valid_uid?
+    return false if uid.nil?
+    #nano_data = Nanowrimo::User.new(uid).load.first
+    #errors.add(:uid, "Unable to find Nanowrimo ID") unless nano_data[:uid].to_i == uid
   end
 end

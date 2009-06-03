@@ -1,6 +1,13 @@
 require 'test_helper'
+require 'fakeweb'
 
 class UserTest < ActiveSupport::TestCase
+  def setup
+    FakeWeb.allow_net_connect=false
+    file = File.expand_path(File.dirname(__FILE__)) + "/../fixtures/xml/user_wc.xml"
+    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/240659", :file => file)
+  end
+  
   test "user has a name" do
     user = users(:one)
     user.name = ""
@@ -102,5 +109,12 @@ class UserTest < ActiveSupport::TestCase
     user.uid = nil
     assert ! user.valid?
     assert user.errors.on(:uid)
+  end
+  
+  test "user able to find uid" do
+    user = users(:one)
+    user.uid = 999999
+    #assert ! user.valid?
+    #assert user.errors.on(:uid)
   end
 end
