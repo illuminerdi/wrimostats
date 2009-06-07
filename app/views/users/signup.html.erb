@@ -1,14 +1,27 @@
-<% form_for(@user) do |f| %>
-  <%= f.error_messages %>
-<fieldset>
-  <legend>Sign Up</legend>
-  <table>
-    <%= render :partial => 'basic_form', :locals => {:f => f} %>
-    <tr>
-      <td colspan="2">
-        <%= f.submit 'Create Your Account' %>
-      </td>
-    </tr>
-  </table>
-</fieldset>
-<% end %>
+<table>
+  <tr>
+    <td>Need an account?</td>
+    <td>Already have one?</td>
+  </tr>
+  <tr>
+    <td>
+      <% form_for(@user) do |f| %>
+        <%= f.error_messages %>
+      <fieldset>
+        <legend>Sign Up</legend>
+        <table>
+          <%= render :partial => 'basic_form', :locals => {:f => f} %>
+          <tr>
+            <td colspan="2">
+              <%= f.submit 'Create Your Account' %>
+            </td>
+          </tr>
+        </table>
+      </fieldset>
+      <% end %>
+    </td>
+    <td>
+      <%= render :partial => 'login_form' %>
+    </td>
+  </tr>
+</table>

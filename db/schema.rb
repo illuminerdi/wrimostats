@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090601234256) do
+ActiveRecord::Schema.define(:version => 20090607231121) do
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false

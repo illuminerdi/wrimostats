@@ -76,11 +76,11 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    begin 
-      flash[:notice] = "User #{@user.name} deleted" 
-      @user.destroy 
-    rescue Exception => e 
-      flash[:notice] = e.message 
+    begin
+      flash[:notice] = "User #{@user.name} deleted"
+      @user.destroy
+    rescue Exception => e
+      flash[:notice] = e.message
     end
 
     respond_to do |format|
@@ -88,12 +88,25 @@ class UsersController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
+
   # new non-scaffolding methods!
   def signup
     @user = User.new
     respond_to do |format|
       format.html
+    end
+  end
+
+  def login
+    if request.post?
+      user = User.authenticate(params[:name], params[:password])
+      if user
+        session[:user_id] = user.id
+        session[:is_admin] = true if user.is_admin?
+        redirect_to(:action => "index")
+      else
+        flash.now[:notice] = "Invalid user/password combination"
+      end
     end
   end
 end

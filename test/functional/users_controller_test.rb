@@ -140,4 +140,43 @@ class UsersControllerTest < ActionController::TestCase
       :href => '/nanowrimo_user_id.html'
     }
   end
+
+  test "should show someone a login page" do
+    get :login
+    assert_response :success
+    assert_tag :tag => "input", :attributes => {
+      :name => "name"
+    }
+    assert_tag :tag => "input", :attributes => {
+      :name => "password", :type => "password"
+    }
+    assert_tag :tag => "a", :attributes => {
+      :href => "/users/signup"
+    }
+    assert_match /Need an account\? Create one!/, @response.body
+  end
+
+  test "should give me a login form on the same page as the signup duh" do
+    get :signup
+    assert_template :partial => '_login_form', :count => 1
+  end
+
+  test "user is able to successfully log in" do
+    user = users(:one)
+    @request.session[:user_id] = nil
+    post :login, :name => user.name, :password => 'boo'
+
+    assert_redirected_to :controller => "users", :action => "index"
+    assert @response.session[:user_id]
+  end
+
+  test "user is unable to log in" do
+    user = users(:one)
+    @request.session[:user_id] = nil
+    post :login, :name => user.name, :password => 'foo'
+
+    assert_response :success
+    assert ! @response.session[:user_id]
+    assert_match /Invalid user\/password combination/, @response.body
+  end
 end
