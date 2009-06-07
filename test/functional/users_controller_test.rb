@@ -166,7 +166,7 @@ class UsersControllerTest < ActionController::TestCase
     @request.session[:user_id] = nil
     post :login, :name => user.name, :password => 'boo'
 
-    assert_redirected_to :controller => "users", :action => "index"
+    assert_redirected_to user_path(user.id)
     assert @response.session[:user_id]
   end
 
