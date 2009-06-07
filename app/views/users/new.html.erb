@@ -2,38 +2,22 @@
 
 <% form_for(@user) do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.text_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation %><br />
-    <%= f.text_field :password_confirmation %>
-  </p>
-  <p>
-    <%= f.label :can_has_notifications %><br />
-    <%= f.check_box :can_has_notifications %>
-  </p>
-  <p>
-    <%= f.label :uid %><br />
-    <%= f.text_field :uid %>
-  </p>
-  <p>
-    <%= f.label :is_admin %><br />
-    <%= f.check_box :is_admin %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
+  <table>
+    <%= render :partial => 'basic_form', :locals => {:f => f} %>
+    <tr>
+      <td>
+        <%= f.label :is_admin, "Admin Account?" %>
+      </td>
+      <td>
+        <%= f.check_box :is_admin %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <%= f.submit 'Create Your Account' %>
+      </td>
+    </tr>
+  </table>
 <% end %>
 
 <%= link_to 'Back', users_path %>
