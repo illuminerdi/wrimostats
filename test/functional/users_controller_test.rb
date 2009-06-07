@@ -1,11 +1,11 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
-  
+
   def setup
     @request.session[:user_id] = users(:one).id
   end
-  
+
   test "should get index" do
     get :index
     assert_response :success
@@ -85,8 +85,8 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should update user" do
     put :update, :id => users(:one).to_param, :user => {
-      :password => 'solomongrundy', 
-      :password_confirmation => 'solomongrundy' 
+      :password => 'solomongrundy',
+      :password_confirmation => 'solomongrundy'
     }
     assert_redirected_to user_path(assigns(:user))
   end
@@ -111,7 +111,7 @@ class UsersControllerTest < ActionController::TestCase
 
    assert_equal 1, users.length
   end
-  
+
   test "should give new users a sign up form" do
     get :signup
     assert_response :success
@@ -132,6 +132,12 @@ class UsersControllerTest < ActionController::TestCase
     }
     assert_tag :tag => 'input', :attributes => {
       :name => 'user[can_has_notifications]'
+    }
+    assert_tag :tag => 'a', :attributes => {
+      :href => '/notifications.html'
+    }
+    assert_tag :tag => 'a', :attributes => {
+      :href => '/nanowrimo_user_id.html'
     }
   end
 end

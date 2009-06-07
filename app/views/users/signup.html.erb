@@ -2,32 +2,60 @@
   <%= f.error_messages %>
 <fieldset>
   <legend>Sign Up</legend>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.text_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation %><br />
-    <%= f.text_field :password_confirmation %>
-  </p>
-  <p>
-    <%= f.label :can_has_notifications %><br />
-    <%= f.check_box :can_has_notifications %>
-  </p>
-  <p>
-    <%= f.label :uid, "Nanowrimo User ID" %><br />
-    <%= f.text_field :uid %>
-  </p>
-  <p>
-    <%= f.submit 'Create Your Account' %>
-  </p>
+  <table>
+    <tr>
+      <td>
+        <%= f.label :name %>
+      </td>
+      <td>
+        <%= f.text_field :name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :email %>
+      </td>
+      <td>
+        <%= f.text_field :email %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :password %>
+      </td>
+      <td>
+        <%= f.text_field :password %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :password_confirmation, "Confirm Password" %>
+      </td>
+      <td>
+        <%= f.text_field :password_confirmation %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :can_has_notifications, "Receive notifications?" %>
+      </td>
+      <td>
+        <%= f.check_box :can_has_notifications %><a href="/notifications.html">(more info)</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :uid, "Nanowrimo User ID" %>
+      </td>
+      <td>
+        <%= f.text_field :uid %><a href="/nanowrimo_user_id.html">(what's this?)</a>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <%= f.submit 'Create Your Account' %>
+      </td>
+    </tr>
+  </table>
 </fieldset>
 <% end %>
