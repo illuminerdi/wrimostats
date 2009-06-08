@@ -1,9 +1,14 @@
 require 'test_helper'
+require 'fakeweb'
 
 class UsersControllerTest < ActionController::TestCase
 
   def setup
     @request.session[:user_id] = users(:one).id
+    FakeWeb.allow_net_connect=false
+    file = File.expand_path(File.dirname(__FILE__)) + "/../fixtures/xml/user_wc.xml"
+    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/240659", :file => file)
+    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/123456", :file => file)
   end
 
   test "should get index" do
@@ -55,6 +60,7 @@ class UsersControllerTest < ActionController::TestCase
   test "should show user" do
     get :show, :id => users(:one).to_param
     assert_response :success
+
   end
 
   test "should get edit" do

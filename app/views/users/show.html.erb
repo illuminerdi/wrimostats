@@ -1,3 +1,48 @@
+What are we doing here?<br/>
+
+See/Add buddies - like a little box that shows the top five word-count-wise, and an option to show all and an option to add more, maybe just a textfield to add new one!<br/>
+
+See personal word data/profile data<br/>
+
+Start a word war/See current word wars<br/>
+
+If set up to receive notifications, should see snaps and site updates, if I ever decide to add those.<br/>
+
+Edit profile?<br/>
+
+So three columns, first is user data, second is a split of buddies and word wars, third is notifications.<br/><br/>
+
+<table>
+  <tr>
+    <td>
+      <!-- user data column -->
+      <table>
+        <tr>
+          <th colspan="2">Your Data</th>
+        </tr>
+        <tr>
+          <td>Name:</td>
+          <td><%=h @user.name %></td>
+        </tr>
+        <tr>
+          <td>Nanowrimo Username:</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Current WordCount:</td>
+          <td></td>
+        </tr>
+      </table>
+    </td>
+    <td>
+      <!-- buddies and word wars -->
+    </td>
+    <td>
+      <!-- notifications -->
+    </td>
+  </tr>
+</table>
+
 <p>
   <b>Name:</b>
   <%=h @user.name %>
@@ -9,16 +54,6 @@
 </p>
 
 <p>
-  <b>Hashed password:</b>
-  <%=h @user.hashed_password %>
-</p>
-
-<p>
-  <b>Salt:</b>
-  <%=h @user.salt %>
-</p>
-
-<p>
   <b>Can has notifications:</b>
   <%=h @user.can_has_notifications %>
 </p>
@@ -26,11 +61,6 @@
 <p>
   <b>Uid:</b>
   <%=h @user.uid %>
-</p>
-
-<p>
-  <b>Is admin:</b>
-  <%=h @user.is_admin %>
 </p>
 
 

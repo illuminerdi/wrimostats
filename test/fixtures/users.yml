@@ -6,7 +6,7 @@ one:
   hashed_password: <%= User.encrypted_password('boo', 'radley') %>
   salt: radley
   can_has_notifications: true
-  uid: 240659
+  uid: 123456
   is_admin: true
 
 renda:
