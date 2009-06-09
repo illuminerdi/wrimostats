@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class BuddiesControllerTest < ActionController::TestCase
+  def setup
+    @request.session[:user_id] = users(:one).to_param
+  end
+
   test "should get index" do
     get :index
     assert_response :success
@@ -10,6 +14,12 @@ class BuddiesControllerTest < ActionController::TestCase
   test "should get new" do
     get :new
     assert_response :success
+    assert_tag :tag => "input", :attributes => {
+      :name => "buddy[uid]"
+    }
+    assert_tag :tag => "input", :attributes => {
+      :name => "buddy[user_id]"
+    }
   end
 
   test "should create buddy" do
@@ -31,6 +41,12 @@ class BuddiesControllerTest < ActionController::TestCase
   test "should get edit" do
     get :edit, :id => buddies(:one).to_param
     assert_response :success
+    assert_tag :tag => "input", :attributes => {
+      :name => "buddy[uid]"
+    }
+    assert_tag :tag => "input", :attributes => {
+      :name => "buddy[user_id]"
+    }
   end
 
   test "should update buddy" do
@@ -45,4 +61,7 @@ class BuddiesControllerTest < ActionController::TestCase
 
     assert_redirected_to buddies_path
   end
+
+  # we only really care about the functionality that's going to show on the dashboard for users.
+  # It will be like a widget that users will use to see their buddies, remove buddies, and add 'em.
 end
