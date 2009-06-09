@@ -1,0 +1,13 @@
+<p>
+  <b>User:</b>
+  <%=h @buddy.user_id %>
+</p>
+
+<p>
+  <b>Uid:</b>
+  <%=h @buddy.uid %>
+</p>
+
+
+<%= link_to 'Edit', edit_buddy_path(@buddy) %> |
+<%= link_to 'Back', buddies_path %>

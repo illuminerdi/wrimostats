@@ -1,0 +1,22 @@
+<h1>Listing buddies</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Uid</th>
+  </tr>
+
+<% @buddies.each do |buddy| %>
+  <tr>
+    <td><%=h buddy.user_id %></td>
+    <td><%=h buddy.uid %></td>
+    <td><%= link_to 'Show', buddy %></td>
+    <td><%= link_to 'Edit', edit_buddy_path(buddy) %></td>
+    <td><%= link_to 'Destroy', buddy, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New buddy', new_buddy_path %>
