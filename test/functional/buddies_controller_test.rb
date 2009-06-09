@@ -14,7 +14,10 @@ class BuddiesControllerTest < ActionController::TestCase
 
   test "should create buddy" do
     assert_difference('Buddy.count') do
-      post :create, :buddy => { }
+      post :create, :buddy => {
+        :user_id => users(:renda).to_param,
+        :uid => users(:reid).uid
+      }
     end
 
     assert_redirected_to buddy_path(assigns(:buddy))

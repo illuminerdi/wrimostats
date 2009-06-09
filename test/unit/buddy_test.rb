@@ -22,7 +22,11 @@ class BuddyTest < ActiveSupport::TestCase
       @buddy = buddies(:one)
     end
 
-    should "return false when sent #valid_uid?" do
+    should "return true when given a proper UID" do
+      assert @buddy.valid?
+    end
+
+    should "return false when given a bad UID" do
       @buddy.uid = 999999
       assert ! @buddy.valid?
       assert @buddy.errors.on(:uid)

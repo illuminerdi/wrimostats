@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
 
   validate :password_not_blank
 
+  has_many :buddies
+
   def self.authenticate(name, password)
     user = self.find_by_name(name)
     if user
@@ -61,7 +63,7 @@ class User < ActiveRecord::Base
   end
 
   def valid_uid?
-    return false if uid.nil?
+    return false unless uid
     nano_data = Nanowrimo::User.new(uid)
     nano_data.load
     errors.add(:uid, "Unable to find Nanowrimo ID") if nano_data.has_error?

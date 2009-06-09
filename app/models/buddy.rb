@@ -7,7 +7,7 @@ class Buddy < ActiveRecord::Base
   private
 
   def valid_uid?
-    return if uid.nil?
+    return unless uid
     unless User.find_by_uid(uid)
       nano_data = Nanowrimo::User.new uid
       nano_data.load

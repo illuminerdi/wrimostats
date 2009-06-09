@@ -9,6 +9,8 @@ class UserTest < ActiveSupport::TestCase
     FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/94450", :file => file)
   end
 
+  should_have_many :buddies
+
   test "user has a name" do
     user = users(:one)
     user.name = ""
