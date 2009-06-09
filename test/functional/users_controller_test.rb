@@ -1,5 +1,4 @@
 require 'test_helper'
-require 'fakeweb'
 
 class UsersControllerTest < ActionController::TestCase
 
