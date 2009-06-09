@@ -60,7 +60,10 @@ class UsersControllerTest < ActionController::TestCase
   test "should show user" do
     get :show, :id => users(:one).to_param
     assert_response :success
-
+    assert_match /<th(.*)>Your Data/, @response.body
+    assert_match /<th(.*)>Buddies/, @response.body
+    assert_match /<th(.*)>Word Wars/, @response.body
+    assert_match /<th(.*)>Notifications/, @response.body
   end
 
   test "should get edit" do
