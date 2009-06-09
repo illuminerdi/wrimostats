@@ -1,9 +1,21 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  user_id: 1
-  uid: 1
+  user: one
+  uid: 94450
 
 two:
-  user_id: 1
-  uid: 1
+  user: one
+  uid: 245095
+
+three:
+  user: renda
+  uid: 240659
+
+four:
+  user: reid
+  uid: 240659
+
+four:
+  user: reid
+  uid: 94450
