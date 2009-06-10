@@ -7,3 +7,8 @@ table.widget {
 	width: 100%;
 	margin-bottom: 5px;
 }
+
+table.widget th {
+	padding-right: 5px;
+	width: 100%;
+}
