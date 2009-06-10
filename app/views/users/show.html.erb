@@ -12,11 +12,11 @@ Edit profile?<br/>
 
 So three columns, first is user data, second is a split of buddies and word wars, third is notifications.<br/><br/>
 
-<table>
+<table class="db_container">
   <tr>
     <td>
       <!-- user data column -->
-      <table>
+      <table class="widget">
         <tr>
           <th colspan="2">Your Data</th>
         </tr>
@@ -44,7 +44,7 @@ So three columns, first is user data, second is a split of buddies and word wars
           <%= render :partial => "buddies/widget_for", :locals => { :user => @user } %>
         </td>
       </table>
-      <table>
+      <table class="widget">
         <tr>
           <th>Word Wars</th>
         </tr>
@@ -52,7 +52,7 @@ So three columns, first is user data, second is a split of buddies and word wars
     </td>
     <td>
       <!-- notifications -->
-      <table>
+      <table class="widget">
         <tr>
           <th>Notifications</th>
         </tr>

@@ -1,0 +1,9 @@
+table.db_container td {
+	vertical-align: top;
+}
+
+table.widget {
+	border: 1px solid black;
+	width: 100%;
+	margin-bottom: 5px;
+}
