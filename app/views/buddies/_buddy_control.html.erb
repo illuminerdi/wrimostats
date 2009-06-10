@@ -3,7 +3,7 @@
     <%= buddy_control.nano_data[:uname] %>
   </td>
   <td>
-    <%= buddy_control.nano_data[:user_wordcount] %>
+    <%= number_with_delimiter(buddy_control.nano_data[:user_wordcount]) %>
   </td>
   <td>
     <%= link_to 'delete', buddy_control, :confirm => 'Are you sure?', :method => :delete %>

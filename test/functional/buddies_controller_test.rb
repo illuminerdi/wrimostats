@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class BuddiesControllerTest < ActionController::TestCase
+  include ActionView::Helpers::NumberHelper
+
   FakeWeb.allow_net_connect = false
   reid = File.expand_path(File.dirname(__FILE__)) + "/../fixtures/xml/user_245095_wc.xml"
   FakeWeb.register_uri("http://www.nanowrimo.org/wordcount_api/wc/245095", :file => reid)
@@ -118,7 +120,7 @@ class BuddiesControllerTest < ActionController::TestCase
             :href => /#{buddy.to_param}/
           }
         assert_match /#{nano_data.uname}/, @response.body
-        assert_match /#{nano_data.user_wordcount}/, @response.body
+        assert_match /#{number_with_delimiter(nano_data.user_wordcount)}/, @response.body
       }
     end
 
