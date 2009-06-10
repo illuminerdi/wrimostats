@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <td>
+      <%= render :partial => 'buddies/add_buddy_form', :locals => { :user_id => user.to_param } %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= render :partial => 'buddies/buddies_list', :object => user %>
+    </td>
+  </tr>
+</table>
