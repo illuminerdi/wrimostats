@@ -1,13 +1,19 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
+  FakeWeb.allow_net_connect=false
+  file = File.expand_path(File.dirname(__FILE__)) + "/../fixtures/xml/user_wc.xml"
+  FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/240659", :file => file)
+  FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/123456", :file => file)
+  reid = File.expand_path(File.dirname(__FILE__)) + "/../fixtures/xml/user_245095_wc.xml"
+  FakeWeb.register_uri("http://www.nanowrimo.org/wordcount_api/wc/245095", :file => reid)
+  renda = File.expand_path(File.dirname(__FILE__)) + "/../fixtures/xml/user_94450_wc.xml"
+  FakeWeb.register_uri("http://www.nanowrimo.org/wordcount_api/wc/94450", :file => renda)
+  bad = File.expand_path(File.dirname(__FILE__)) + "/../fixtures/xml/user_wc_error.xml"
+  FakeWeb.register_uri("http://www.nanowrimo.org/wordcount_api/wc/999999", :file => bad)
 
   def setup
     @request.session[:user_id] = users(:one).id
-    FakeWeb.allow_net_connect=false
-    file = File.expand_path(File.dirname(__FILE__)) + "/../fixtures/xml/user_wc.xml"
-    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/240659", :file => file)
-    FakeWeb.register_uri("#{Nanowrimo::API_URI}/wc/123456", :file => file)
   end
 
   test "should get index" do
@@ -186,5 +192,15 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
     assert ! @response.session[:user_id]
     assert_match /Invalid user\/password combination/, @response.body
+  end
+
+  context "on GET to :show for first user" do
+    setup do
+      get :show, :id => @request.session[:user_id]
+    end
+
+    should "include the widget_for template" do
+      assert_template :partial => "buddies/_widget_for", :count => 1
+    end
   end
 end

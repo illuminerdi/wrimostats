@@ -78,11 +78,12 @@ class BuddiesControllerTest < ActionController::TestCase
   end
 
   test "should destroy buddy" do
+    user_id = buddies(:one).user.to_param
     assert_difference('Buddy.count', -1) do
       delete :destroy, :id => buddies(:one).to_param
     end
 
-    assert_redirected_to buddies_path
+    assert_redirected_to user_path(user_id)
   end
 
   # we only really care about the functionality that's going to show on the dashboard for users.

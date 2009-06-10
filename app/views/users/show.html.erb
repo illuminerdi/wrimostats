@@ -36,10 +36,13 @@ So three columns, first is user data, second is a split of buddies and word wars
     </td>
     <td>
       <!-- buddies and word wars -->
-      <table>
+      <table class="widget">
         <tr>
           <th>Buddies</th>
         </tr>
+        <td>
+          <%= render :partial => "buddies/widget_for", :locals => { :user => @user } %>
+        </td>
       </table>
       <table>
         <tr>

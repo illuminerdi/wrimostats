@@ -91,6 +91,7 @@ class BuddiesController < ApplicationController
     @buddy.destroy
 
     respond_to do |format|
+      format.html { redirect_to(user_path(session[:user_id]))} if session[:user_id]
       format.html { redirect_to(buddies_url) }
       format.xml  { head :ok }
     end
