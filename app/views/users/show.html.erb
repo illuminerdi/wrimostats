@@ -1,17 +1,3 @@
-What are we doing here?<br/>
-
-See/Add buddies - like a little box that shows the top five word-count-wise, and an option to show all and an option to add more, maybe just a textfield to add new one!<br/>
-
-See personal word data/profile data<br/>
-
-Start a word war/See current word wars<br/>
-
-If set up to receive notifications, should see snaps and site updates, if I ever decide to add those.<br/>
-
-Edit profile?<br/>
-
-So three columns, first is user data, second is a split of buddies and word wars, third is notifications.<br/><br/>
-
 <table class="db_container">
   <tr>
     <td>
@@ -61,26 +47,16 @@ So three columns, first is user data, second is a split of buddies and word wars
   </tr>
 </table>
 
-<p>
-  <b>Name:</b>
-  <%=h @user.name %>
-</p>
+What are we doing here?<br/>
 
-<p>
-  <b>Email:</b>
-  <%=h @user.email %>
-</p>
+See/Add buddies - like a little box that shows the top five word-count-wise, and an option to show all and an option to add more, maybe just a textfield to add new one!<br/>
 
-<p>
-  <b>Can has notifications:</b>
-  <%=h @user.can_has_notifications %>
-</p>
+See personal word data/profile data<br/>
 
-<p>
-  <b>Uid:</b>
-  <%=h @user.uid %>
-</p>
+Start a word war/See current word wars<br/>
 
+If set up to receive notifications, should see snaps and site updates, if I ever decide to add those.<br/>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+Edit profile?<br/>
+
+So three columns, first is user data, second is a split of buddies and word wars, third is notifications.<br/><br/>
