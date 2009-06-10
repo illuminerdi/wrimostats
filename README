@@ -28,7 +28,11 @@ It's a rails app. Hopefully there will be nothing special required to get it run
 
 * ruby 1.8.6
 * rails 2.3.2
-* illuminerdi-nanowrimo 0.6
+* illuminerdi-nanowrimo 0.7.5
+
+TEST:
+* thoughtbot-shoulda 2.10.1
+* fakeweb 1.2.2
 
 == INSTALL:
 
