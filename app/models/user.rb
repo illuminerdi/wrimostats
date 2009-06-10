@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
   end
 
   def valid_uid?
-    return false unless uid
+    return unless uid
     nano_data = Nanowrimo::User.new(uid)
     nano_data.load
     errors.add(:uid, "Unable to find Nanowrimo ID") if nano_data.has_error?
