@@ -45,11 +45,24 @@ class BuddiesController < ApplicationController
     respond_to do |format|
       if @buddy.save
         flash[:notice] = 'Buddy was successfully created.'
-        format.html { redirect_to(@buddy) }
-        format.xml  { render :xml => @buddy, :status => :created, :location => @buddy }
+        if session[:user_id]
+          format.html {redirect_to(user_path(session[:user_id]))}
+        else
+          format.html { redirect_to(@buddy) }
+          format.xml  { render :xml => @buddy, :status => :created, :location => @buddy }
+        end
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @buddy.errors, :status => :unprocessable_entity }
+        if session[:user_id]
+          errors = []
+          @buddy.errors.each do |field,error|
+            errors << error
+          end
+          flash[:notice] = errors
+          format.html { redirect_to(user_path(session[:user_id]))}
+        else
+          format.html { render :action => "new" }
+          format.xml  { render :xml => @buddy.errors, :status => :unprocessable_entity }
+        end
       end
     end
   end
@@ -81,5 +94,10 @@ class BuddiesController < ApplicationController
       format.html { redirect_to(buddies_url) }
       format.xml  { head :ok }
     end
+  end
+
+  # New actions
+  def widget_for
+    @user = User.find(params[:id])
   end
 end

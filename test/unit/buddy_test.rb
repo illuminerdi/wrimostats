@@ -13,7 +13,7 @@ class BuddyTest < ActiveSupport::TestCase
 
   fixtures :all
 
-  should_validate_uniqueness_of :uid, :scoped_to => :user_id
+  should_validate_uniqueness_of :uid, :scoped_to => :user_id, :message => /Nanowrimo ID given is already set up as a buddy./
   should_validate_presence_of :user_id, :uid
   should_belong_to :user
 
@@ -30,6 +30,13 @@ class BuddyTest < ActiveSupport::TestCase
       @buddy.uid = 999999
       assert ! @buddy.valid?
       assert @buddy.errors.on(:uid)
+    end
+
+    should "load user data from nanowrimo when asked for it" do
+      assert @buddy.respond_to?(:nano_data)
+      assert @buddy.nano_data
+      assert @buddy.nano_data.instance_of?(Hash)
+      assert_equal @buddy.uid, @buddy.nano_data[:uid]
     end
   end
 end

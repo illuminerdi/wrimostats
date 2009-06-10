@@ -1,0 +1,5 @@
+<% form_for Buddy.new({:user_id => user_id}) do |f| -%>
+  <%= f.hidden_field :user_id %>
+  User ID: <%= f.text_field :uid %>
+  <%= f.submit "Add", :disable_with => 'Adding...' %>
+<% end -%>
