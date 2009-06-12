@@ -44,25 +44,15 @@ class BuddiesController < ApplicationController
 
     respond_to do |format|
       if @buddy.save
-        flash[:notice] = 'Buddy was successfully created.'
-        if session[:user_id]
-          format.html {redirect_to(user_path(session[:user_id]))}
-        else
-          format.html { redirect_to(@buddy) }
-          format.xml  { render :xml => @buddy, :status => :created, :location => @buddy }
-        end
+        flash[:notice] = 'New buddy added.'
+        format.html {redirect_to(user_path(session[:user_id]))}
       else
-        if session[:user_id]
-          errors = []
-          @buddy.errors.each do |field,error|
-            errors << error
-          end
-          flash[:notice] = errors
-          format.html { redirect_to(user_path(session[:user_id]))}
-        else
-          format.html { render :action => "new" }
-          format.xml  { render :xml => @buddy.errors, :status => :unprocessable_entity }
+        errors = []
+        @buddy.errors.each do |field,error|
+          errors << error
         end
+        flash[:notice] = errors
+        format.html { redirect_to(user_path(session[:user_id]))}
       end
     end
   end

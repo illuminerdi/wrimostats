@@ -44,6 +44,7 @@ class BuddiesControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to user_path(users(:renda).to_param)
+    assert_match(/New buddy added/, @response.flash[:notice])
   end
 
   test "should handle duplicate buddy properly" do
