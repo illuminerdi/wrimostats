@@ -1,0 +1,28 @@
+<h1>Editing word_war</h1>
+
+<% form_for(@word_war) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :can_has_snaps %><br />
+    <%= f.check_box :can_has_snaps %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @word_war %> |
+<%= link_to 'Back', word_wars_path %>

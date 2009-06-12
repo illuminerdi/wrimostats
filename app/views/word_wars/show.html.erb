@@ -1,0 +1,23 @@
+<p>
+  <b>User:</b>
+  <%=h @word_war.user_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @word_war.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @word_war.description %>
+</p>
+
+<p>
+  <b>Can has snaps:</b>
+  <%=h @word_war.can_has_snaps %>
+</p>
+
+
+<%= link_to 'Edit', edit_word_war_path(@word_war) %> |
+<%= link_to 'Back', word_wars_path %>
