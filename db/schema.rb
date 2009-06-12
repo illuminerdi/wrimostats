@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090609000348) do
+ActiveRecord::Schema.define(:version => 20090612141046) do
 
   create_table "buddies", :force => true do |t|
     t.integer  "user_id"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(:version => 20090609000348) do
     t.boolean  "can_has_notifications", :default => true
     t.integer  "uid"
     t.boolean  "is_admin",              :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "word_wars", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "description"
+    t.boolean  "can_has_snaps", :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end

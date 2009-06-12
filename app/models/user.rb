@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   validate :password_not_blank
 
   has_many :buddies
+  has_many :word_wars
 
   def self.authenticate(name, password)
     user = self.find_by_name(name)

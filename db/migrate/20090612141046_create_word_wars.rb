@@ -4,7 +4,7 @@ class CreateWordWars < ActiveRecord::Migration
       t.integer :user_id
       t.string :title
       t.text :description
-      t.boolean :can_has_snaps
+      t.boolean :can_has_snaps, :default => true
 
       t.timestamps
     end

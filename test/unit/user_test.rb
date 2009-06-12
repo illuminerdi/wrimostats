@@ -10,6 +10,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   should_have_many :buddies
+  should_have_many :word_wars
 
   test "user has a name" do
     user = users(:one)

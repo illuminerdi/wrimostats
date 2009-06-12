@@ -14,7 +14,10 @@ class WordWarsControllerTest < ActionController::TestCase
 
   test "should create word_war" do
     assert_difference('WordWar.count') do
-      post :create, :word_war => { }
+      post :create, :word_war => {
+        :user_id => users(:one).to_param,
+        :title => "Test Word War"
+      }
     end
 
     assert_redirected_to word_war_path(assigns(:word_war))

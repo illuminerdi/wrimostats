@@ -1,13 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  user_id: 1
+  user: one
   title: MyString
   description: MyText
   can_has_snaps: false
 
 two:
-  user_id: 1
+  user: renda
   title: MyString
   description: MyText
-  can_has_snaps: false
+  can_has_snaps: true
