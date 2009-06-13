@@ -73,7 +73,7 @@ class WordWarsControllerTest < ActionController::TestCase
   end
 
   test "should update word_war" do
-    put :update, :id => word_wars(:one).to_param, :word_war => { }
+    put :update, :id => word_wars(:one).to_param, :word_war => { :title => "This is a new title" }
     assert_redirected_to word_war_path(assigns(:word_war))
   end
 
