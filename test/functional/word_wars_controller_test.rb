@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class WordWarsControllerTest < ActionController::TestCase
+  def setup
+    @request.session[:user_id] = users(:one).to_param
+  end
+
   test "should get index" do
     get :index
     assert_response :success
@@ -10,6 +14,24 @@ class WordWarsControllerTest < ActionController::TestCase
   test "should get new" do
     get :new
     assert_response :success
+
+    assert_tag :tag => "input", :attributes => {
+      :type => "text",
+      :name => "word_war[title]"
+    }
+    assert_tag :tag => "input", :attributes => {
+      :type => "hidden",
+      :name => "word_war[user_id]",
+      :value => users(:one).to_param
+    }
+    assert_tag :tag => "textarea", :attributes => {
+      :name => "word_war[description]"
+    }
+    assert_tag :tag => "input", :attributes => {
+      :type => "checkbox",
+      :name => "word_war[can_has_snaps]",
+      :checked => "checked"
+    }
   end
 
   test "should create word_war" do
@@ -29,8 +51,25 @@ class WordWarsControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit, :id => word_wars(:one).to_param
+    get :edit, :id => word_wars(:two).to_param
     assert_response :success
+
+    assert_tag :tag => "input", :attributes => {
+      :type => "text",
+      :name => "word_war[title]"
+    }
+    assert_tag :tag => "input", :attributes => {
+      :type => "hidden",
+      :name => "word_war[user_id]",
+      :value => users(:renda).to_param
+    }
+    assert_tag :tag => "textarea", :attributes => {
+      :name => "word_war[description]"
+    }
+    assert_tag :tag => "input", :attributes => {
+      :type => "checkbox",
+      :name => "word_war[can_has_snaps]"
+    }
   end
 
   test "should update word_war" do

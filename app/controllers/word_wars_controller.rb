@@ -24,7 +24,7 @@ class WordWarsController < ApplicationController
   # GET /word_wars/new
   # GET /word_wars/new.xml
   def new
-    @word_war = WordWar.new
+    @word_war = WordWar.new({:user_id => session[:user_id]})
 
     respond_to do |format|
       format.html # new.html.erb

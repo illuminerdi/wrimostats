@@ -1,0 +1,33 @@
+<% form_for(@word_war) do |f| %>
+  <%= f.error_messages %>
+  <%= f.hidden_field :user_id %>
+  <table>
+    <tr>
+      <td>
+        <%= f.label :title %>
+      </td>
+      <td>
+        <%= f.text_field :title %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :description %>
+      </td>
+      <td>
+        <%= f.text_area :description %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :can_has_snaps %>
+      </td>
+      <td>
+        <%= f.check_box :can_has_snaps %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2"><%= f.submit "#{form_type} Word War" %></td>
+    </tr>
+  </table>
+<% end %>
