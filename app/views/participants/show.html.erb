@@ -1,0 +1,18 @@
+<p>
+  <b>Word war:</b>
+  <%=h @participant.word_war_id %>
+</p>
+
+<p>
+  <b>Uid:</b>
+  <%=h @participant.uid %>
+</p>
+
+<p>
+  <b>Is willing:</b>
+  <%=h @participant.is_willing %>
+</p>
+
+
+<%= link_to 'Edit', edit_participant_path(@participant) %> |
+<%= link_to 'Back', participants_path %>
