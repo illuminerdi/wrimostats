@@ -1,6 +1,9 @@
 require 'test_helper'
 
 class ParticipantTest < ActiveSupport::TestCase
+  FakeWeb.allow_net_connect = false
+  reid = File.expand_path(File.dirname(__FILE__)) + "/../fixtures/xml/user_245095_wc.xml"
+  FakeWeb.register_uri("http://www.nanowrimo.org/wordcount_api/wc/245095", :file => reid)
   bad = File.expand_path(File.dirname(__FILE__)) + "/../fixtures/xml/user_wc_error.xml"
   FakeWeb.register_uri("http://www.nanowrimo.org/wordcount_api/wc/999999", :file => bad)
 
