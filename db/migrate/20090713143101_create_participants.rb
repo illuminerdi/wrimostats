@@ -3,7 +3,7 @@ class CreateParticipants < ActiveRecord::Migration
     create_table :participants do |t|
       t.integer :word_war_id
       t.integer :uid
-      t.boolean :is_willing
+      t.boolean :is_willing, :default => false
 
       t.timestamps
     end
