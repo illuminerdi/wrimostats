@@ -2,25 +2,25 @@
 
 one:
   word_war: one
-  user: reid
+  uid: 245095
   is_willing: false
 
 two:
   word_war: one
-  user: renda
+  uid: 94450
   is_willing: true
 
 three:
   word_war: one
-  user: one
+  uid: 123456
   is_willing: true
 
 four:
   word_war: two
-  user: one
+  uid: 123456
   is_willing: false
 
 five:
   word_war: two
-  user: renda
+  uid: 94450
   is_willing: true

@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20090713143101) do
 
   create_table "participants", :force => true do |t|
     t.integer  "word_war_id"
-    t.integer  "user_id"
+    t.integer  "uid"
     t.boolean  "is_willing",  :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
