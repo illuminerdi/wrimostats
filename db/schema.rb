@@ -9,11 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090612141046) do
+ActiveRecord::Schema.define(:version => 20090713143101) do
 
   create_table "buddies", :force => true do |t|
     t.integer  "user_id"
     t.integer  "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "participants", :force => true do |t|
+    t.integer  "word_war_id"
+    t.integer  "user_id"
+    t.boolean  "is_willing",  :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

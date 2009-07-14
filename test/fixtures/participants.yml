@@ -1,11 +1,26 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  word_war_id: 1
-  uid: 1
+  word_war: one
+  user: reid
   is_willing: false
 
 two:
-  word_war_id: 1
-  uid: 1
+  word_war: one
+  user: renda
+  is_willing: true
+
+three:
+  word_war: one
+  user: one
+  is_willing: true
+
+four:
+  word_war: two
+  user: one
   is_willing: false
+
+five:
+  word_war: two
+  user: renda
+  is_willing: true
