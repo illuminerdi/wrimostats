@@ -14,7 +14,10 @@ class ParticipantsControllerTest < ActionController::TestCase
 
   test "should create participant" do
     assert_difference('Participant.count') do
-      post :create, :participant => { }
+      post :create, :participant => {
+        :word_war_id => word_wars(:two).id,
+        :uid => 245095
+      }
     end
 
     assert_redirected_to participant_path(assigns(:participant))
