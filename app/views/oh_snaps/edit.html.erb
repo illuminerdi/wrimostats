@@ -1,0 +1,24 @@
+<h1>Editing oh_snap</h1>
+
+<% form_for(@oh_snap) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :word_war_id %><br />
+    <%= f.text_field :word_war_id %>
+  </p>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :comment %><br />
+    <%= f.text_area :comment %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @oh_snap %> |
+<%= link_to 'Back', oh_snaps_path %>

@@ -1,0 +1,18 @@
+<p>
+  <b>Word war:</b>
+  <%=h @oh_snap.word_war_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @oh_snap.user_id %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%=h @oh_snap.comment %>
+</p>
+
+
+<%= link_to 'Edit', edit_oh_snap_path(@oh_snap) %> |
+<%= link_to 'Back', oh_snaps_path %>

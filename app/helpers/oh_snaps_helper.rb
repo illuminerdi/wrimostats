@@ -1,0 +1,2 @@
+module OhSnapsHelper
+end

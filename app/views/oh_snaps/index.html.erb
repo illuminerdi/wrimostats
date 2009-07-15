@@ -1,0 +1,24 @@
+<h1>Listing oh_snaps</h1>
+
+<table>
+  <tr>
+    <th>Word war</th>
+    <th>User</th>
+    <th>Comment</th>
+  </tr>
+
+<% @oh_snaps.each do |oh_snap| %>
+  <tr>
+    <td><%=h oh_snap.word_war_id %></td>
+    <td><%=h oh_snap.user_id %></td>
+    <td><%=h oh_snap.comment %></td>
+    <td><%= link_to 'Show', oh_snap %></td>
+    <td><%= link_to 'Edit', edit_oh_snap_path(oh_snap) %></td>
+    <td><%= link_to 'Destroy', oh_snap, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New oh_snap', new_oh_snap_path %>
