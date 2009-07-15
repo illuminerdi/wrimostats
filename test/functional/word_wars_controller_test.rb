@@ -84,4 +84,19 @@ class WordWarsControllerTest < ActionController::TestCase
 
     assert_redirected_to word_wars_path
   end
+
+  context "on POST to create for new word war with same title as other word war for user" do
+    setup do
+      assert_no_difference('WordWar.count') do
+        post :create, :word_war => {
+          :user_id => users(:one).to_param,
+          :title => users(:one).word_wars.first.title
+        }
+      end
+    end
+
+    should_assign_to :word_war
+    should_respond_with :success
+    should_render_template :new
+  end
 end
