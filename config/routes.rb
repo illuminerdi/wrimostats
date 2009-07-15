@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :oh_snaps
+
   map.resources :participants
 
   map.resources :word_wars
