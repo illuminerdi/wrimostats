@@ -11,6 +11,7 @@ class UserTest < ActiveSupport::TestCase
 
   should_have_many :buddies
   should_have_many :word_wars
+  should_have_many :oh_snaps
 
   test "user has a name" do
     user = users(:one)

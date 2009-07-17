@@ -1,11 +1,16 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  word_war_id: 1
-  user_id: 1
-  comment: MyText
+  word_war: one
+  user: reid
+  comment: Man, I wrote so much more than you did today. You suck!
 
 two:
-  word_war_id: 1
-  user_id: 1
-  comment: MyText
+  word_war: one
+  user: renda
+  comment: Wait until I update my word count. Talk about 'premature', Reid!
+
+three:
+  word_war: two
+  user: one
+  comment: Man, why isn't anyone saying anything?

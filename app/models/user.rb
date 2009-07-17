@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
 
   has_many :buddies
   has_many :word_wars
+  has_many :oh_snaps
 
   def self.authenticate(name, password)
     user = self.find_by_name(name)
