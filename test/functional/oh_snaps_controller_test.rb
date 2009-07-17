@@ -14,7 +14,11 @@ class OhSnapsControllerTest < ActionController::TestCase
 
   test "should create oh_snap" do
     assert_difference('OhSnap.count') do
-      post :create, :oh_snap => { }
+      post :create, :oh_snap => {
+        :word_war_id => word_wars(:one),
+        :user_id => users(:reid),
+        :comment => "Oh yeah? Well, YOUR mom!"
+      }
     end
 
     assert_redirected_to oh_snap_path(assigns(:oh_snap))
