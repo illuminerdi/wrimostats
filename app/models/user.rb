@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_many :buddies
   has_many :word_wars
   has_many :oh_snaps
+  has_many :participations, :class_name => "Participant", :primary_key => :uid, :foreign_key => :uid
 
   def self.authenticate(name, password)
     user = self.find_by_name(name)

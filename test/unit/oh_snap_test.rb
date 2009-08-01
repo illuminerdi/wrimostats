@@ -9,19 +9,17 @@ class OhSnapTest < ActiveSupport::TestCase
 
   context "a new Oh Snap" do
     setup do
-      @oh_snap = OhSnap.new({:word_war_id => word_wars(:two), :comment => "Simple comment"})
+      @oh_snap = OhSnap.new({:word_war_id => word_wars(:two).to_param, :comment => "Simple comment"})
     end
 
     should "not allow snaps from a user not part of this word war" do
-      @oh_snap.user_id = 245095
+      @oh_snap.user_id = users(:reid).to_param
       assert ! @oh_snap.valid?
-      assert @oh_snap.errors.on(:word_war_id)
     end
 
     should "not allow snaps from a user who is not a willing participant" do
-      @oh_snap.user_id = 123456
+      @oh_snap.user_id = users(:one).to_param
       assert ! @oh_snap.valid?
-      assert @oh_snap.errors.on(:word_war_id)
     end
   end
 end

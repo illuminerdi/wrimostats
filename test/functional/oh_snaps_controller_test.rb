@@ -15,8 +15,8 @@ class OhSnapsControllerTest < ActionController::TestCase
   test "should create oh_snap" do
     assert_difference('OhSnap.count') do
       post :create, :oh_snap => {
-        :word_war_id => word_wars(:one),
-        :user_id => users(:reid),
+        :word_war_id => word_wars(:one).to_param,
+        :user_id => users(:renda).to_param,
         :comment => "Oh yeah? Well, YOUR mom!"
       }
     end
